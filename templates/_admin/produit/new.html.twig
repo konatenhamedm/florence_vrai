@@ -1,0 +1,159 @@
+
+{% from '_admin/macros/fichier.html.twig' import list_document %}
+{% block page_content %}
+
+    <div class="modal-header bg-secondary-gradient">
+        <h2 class="modal-title" style="margin-top: -15px;color: white">NOUVEAU-{{ titre | upper  }}
+            </h2>
+        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    {% form_theme form 'widget/fields-block.html.twig' %}
+    {{ form_start(form, {'attr': {'role':'form', 'class': 'form'}}) }}
+    <div class="modal-body">
+        {# {{ include('includes/ajax/response.html.twig') }} #}
+        <div id="list-document" data-prototype="{{ list_document(form.image.vars.prototype, 1)|e }}"></div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ include('_includes/ajax/response.html.twig') }}
+            </div>
+        </div>
+
+        <div class="contenu" style="margin-top: -10px">
+
+            <div class="row">
+                <div class="form-group col-md-6 ">
+                    <label class="sr-onl" for="userinput1">Catégorie</label>
+                    {{ form_widget(form.categorie,{'attr':{'class':'form-control border-primary','id':'userinput1','placeholder':'catégorie'}}) }}
+                    {# <input type="text" id="userinput1" class="form-control border-primary" placeholder="Compte contribuable" name="name">#}
+                </div>
+                <div class="form-group col-md-6 ">
+                    <label class="sr-onl" for="userinput1">Libelle</label>
+                    {{ form_widget(form.libelle,{'attr':{'class':'form-control border-primary','id':'userinput1','placeholder':'libelle','required':'required'}}) }}
+                    {# <input type="text" id="userinput1" class="form-control border-primary" placeholder="Compte contribuable" name="name">#}
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 ">
+                    <label class="sr-onl" for="userinput1">Description</label>
+                    {{ form_widget(form.description,{'attr':{'class':'form-control border-primary','id':'userinput1','placeholder':'Objet','required':'required'}}) }}
+                    {# <input type="text" id="userinput1" class="form-control border-primary" placeholder="Compte contribuable" name="name">#}
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" data-origine="1" class="add-document btn btn-sm btn-info" data-container=".doc-container">Ajouter une image</button>
+              <br/>
+                <div class="doc-container">
+                    <br/>
+                    {% for document in form.image %}
+                        {{ list_document(document) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button class="btn btn-primary btn-ajax">Valider</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+{#{% include 'admin/macros/fichier.html.twig'  %}#}
+
+{% block javascripts %}
+    <script>
+
+        $(function () {
+            const $container = $('.doc-container');
+            var index = $container.find('.row-line').length;
+
+            const $addLink = $('.add-document');
+            $addLink.click(function(e) {
+
+                addLine($container);
+
+
+
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+            });
+            // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+            /*if (index == 0) {
+            addimputation($container);
+            } else {*/
+            if (index > 0) {
+                $container.children('.row-line').each(function() {
+                    const $this = $(this);
+                    addDeleteLink($this);
+                    $this.find("select").each(function() {
+                        const $this = $(this);
+                        init_select2($this, null);
+                    });
+
+
+
+
+                });
+            }
+
+
+            // La fonction qui ajoute un formulaire Categorie
+            function addLine($container) {
+                // Dans le contenu de l'attribut « data-prototype », on remplace :
+                // - le texte "__name__label__" qu'il contient par le label du champ
+                // - le texte "__name__" qu'il contient par le numéro du champ
+                var $prototype = $($("#list-document").attr('data-prototype').replace(/__name__label__/g, 'Pièce ' + (index + 1)).replace(/__name__/g, index));
+                // On ajoute au prototype un lien pour pouvoir supprimer la prestation
+                addDeleteLink($prototype);
+                // On ajoute le prototype modifié à la fin de la balise <div>
+                $container.append($prototype);
+
+                $prototype.find("select").each(function() {
+                    const $this = $(this);
+                    init_select2($this, null);
+                });
+
+                index++;
+            }
+
+
+            function addDeleteLink($prototype) {
+                // Création du lien
+                $deleteLink = $('<a href="#" class="btn btn-danger"><span class="fa fa-trash"></span></a>');
+                // Ajout du lien
+                $prototype.find(".del-col").append($deleteLink);
+                // Ajout du listener sur le clic du lien
+                $deleteLink.click(function(e) {
+                    const $parent = $(this).closest('.row-line');
+                    $parent.remove();
+
+
+                    if (index > 0) {
+                        index -= 1;
+                    }
+
+                    e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                });
+            }
+        });
+
+        $(function () {
+            $('.no-auto').each(function () {
+                const $this = $(this);
+                const $id = $('#' + $this.attr('id'));
+                init_date_picker($id,  'down', (start, e) => {
+                    //$this.val(start.format('DD/MM/YYYY'));
+                }, null, null, false);
+
+                $id.on('apply.daterangepicker', function (ev, picker) {
+                    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+                });
+            });
+        });
+
+    </script>
+{% endblock %}

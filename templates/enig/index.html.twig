@@ -1,0 +1,628 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Mirrored from htmldemo.net/esther/esther/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Oct 2022 15:51:17 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Esther - Car Accessories Shop HTML Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="enig/assets/img/favicon.ico">
+
+    <!-- CSS 
+    ========================= -->
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="enig/assets/css/bootstrap.min.css">
+    <!--owl carousel min css-->
+    <link rel="stylesheet" href="enig/assets/css/owl.carousel.min.css">
+    <!--slick min css-->
+    <link rel="stylesheet" href="enig/assets/css/slick.css">
+    <!--magnific popup min css-->
+    <link rel="stylesheet" href="enig/assets/css/magnific-popup.css">
+    <!--font awesome css-->
+    <link rel="stylesheet" href="enig/assets/css/font.awesome.css">
+    <!--font ionicons css-->
+    <link rel="stylesheet" href="enig/assets/css/ionicons.min.css">
+    <!--animate css-->
+    <link rel="stylesheet" href="enig/assets/css/animate.css">
+    <!--jquery ui min css-->
+    <link rel="stylesheet" href="enig/assets/css/jquery-ui.min.css">
+    <!--slinky menu css-->
+    <link rel="stylesheet" href="enig/assets/css/slinky.menu.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="enig/assets/css/plugins.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="enig/assets/css/style.css">
+
+    <!--modernizr min js here-->
+    <script src="enig/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+<style>
+    /* TIMELINE
+			–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .timeline2 {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 550px;
+        top: calc(100%-600px);
+        position: relative;
+        scroll-behavior:  smooth ;
+
+    }
+    .timeline2   *, .timeline2   *::before, .timeline2   *::after {
+        font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .timeline2::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    .timeline2::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    .timeline2::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
+
+    .timeline2 ul {
+        background: white;
+        /* padding: 50px 0; */
+    }
+
+    .timeline2 ul li {
+        list-style-type: none;
+        position: relative;
+        width: 2px;/* width: 6px; */
+        margin: 0 auto;
+        padding-top: 10px;/* 50px; */
+        padding-bottom: 10px;/* padding-bottom: 20px; = center padding-bottom: 10px; = center */
+        background: #fff; /* background: black;  */
+
+        border-left: 3px double white;
+
+    }
+
+
+    .timeline2 ul li::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 30px; /* bottom: 0;  bottom: 50%;=center top: 30px;=top  */
+        transform: translateX(-55%);/* transform: translateX(-50%); */
+        -webkit-transform: translateX(-55%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: inherit;
+        border: 2px solid #03A9F4;
+    }
+
+    .timeline2 ul li div {
+        position: relative;
+        bottom: 0;
+        width: 400px;
+        padding: 15px;
+        background: #03A9F4;
+
+    }
+
+    .timeline2 ul li div::before {
+        content: '';
+        position: absolute;
+        top: 20px; /* bottom: 7px; bottom: 50%;=center top: 20px;=top */
+
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .timeline2 ul li:nth-child(odd) div {
+        left: 45px;
+    }
+
+    .timeline2 ul li:nth-child(odd) div::before {
+        left: -15px;
+        border-width: 16px 16px 16px 0;/* border-width: 8px 16px 8px 0; */
+        border-color: transparent #03A9F4 transparent transparent;
+    }
+
+    .timeline2 ul li:nth-child(even) div {
+        left: -439px;
+    }
+
+    .timeline2 ul li:nth-child(even) div::before {
+        right: -15px;
+        border-width: 16px 0 16px 16px; /* border-width: 8px 0 8px 16px; */
+        border-color: transparent transparent transparent #03A9F4;
+    }
+
+
+    .timeline2 ul li:nth-child(odd) .time {
+        position: absolute;
+        top: 20px;
+        left: -100px;
+        width: 90px;
+    }
+    .timeline2 ul li:nth-child(even) .time {
+        position: absolute;
+        top: 20px;
+        right: -120px;
+        width: 90px;
+    }
+
+
+    .timeline2 time {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+
+    /* EFFECTS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    .timeline2 ul li::after {
+        transition: background .5s ease-in-out;
+        -webkit-transition: background .5s ease-in-out;
+    }
+
+    .timeline2 ul li.in-view::after {
+        background: #03A9F4;
+        border: 2px solid white;
+    }
+
+    .timeline2 ul li div {
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+    }
+
+    .timeline2 ul li:nth-child(odd) div {
+        transform: translate3d(200px, 0, 0);
+        -webkit-transform: translate(200px, 0, 0);
+    }
+
+    .timeline2 ul li:nth-child(even) div {
+        transform: translate3d(-200px, 0, 0);
+        -webkit-transform: translate(-200px, 0, 0);
+    }
+
+    .timeline2 ul li.in-view div {
+        transform: none;
+        -webkit-transform: none;
+        visibility: visible;
+        opacity: 1;
+        /* disabled when arrow is on top position
+        border-radius: 10px;
+        */
+    }
+
+    .timeline2 ul li  .time {
+        transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+        transform: rotate(-90deg);
+        -webkit-transform:rotate(270deg);
+    }
+    .timeline2 ul li.in-view  .time {
+        transform: rotate(0deg);
+        -webkit-transform:rotate(0deg);
+    }
+
+    /* GENERAL MEDIA QUERIES
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    @media screen and (max-width: 900px) {
+        .timeline2 ul li div {
+            width: 250px;
+        }
+        .timeline2 ul li:nth-child(even) div {
+            left: -289px;
+            /*250+45-6*/
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .timeline2 ul li {
+            margin-left: 20px;
+        }
+        .timeline2 ul li div {
+            width: calc(100vw - 120px);
+        }
+        .timeline2 ul li:nth-child(even) div {
+            left: 45px;
+        }
+        .timeline2 ul li:nth-child(even) div::before {
+            left: -15px;
+            border-width: 16px 16px 16px 0; /* border-width: 8px 16px 8px 0;  */
+            border-color: transparent #03A9F4 transparent transparent;
+        }
+
+
+        .timeline2 ul li:nth-child(odd) .time {
+            position: absolute;
+            top: 60px;
+            left: -23px;
+            width: 90px;
+            /*
+            transform: rotate(-90deg);
+            -webkit-transform:rotate(270deg);
+            */
+            transform: rotate(0deg);
+            -webkit-transform:rotate(0deg);
+        }
+        .timeline2 ul li:nth-child(even) .time {
+            position: absolute;
+            top: 60px;
+            right: -67px;
+            width: 90px;
+            /*
+            transform: rotate(-90deg);
+            -webkit-transform:rotate(270deg);
+            */
+            transform: rotate(0deg);
+            -webkit-transform:rotate(0deg);
+        }
+        .timeline2 ul li.in-view:nth-child(odd) .time {
+            transform: rotate(-90deg);
+            -webkit-transform:rotate(270deg);
+        }
+        .timeline2 ul li.in-view:nth-child(even) .time {
+            transform: rotate(-90deg);
+            -webkit-transform:rotate(270deg);
+        }
+
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="off_canvars_overlay">
+
+    </div>
+
+    {% include("enig/header.html.twig") %}
+
+    {% include("enig/services.html.twig") %}
+
+  {% include("enig/categories.html.twig") %}
+  {% include("enig/about.html.twig") %}
+
+    <footer class="footer_widgets">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-5">
+                        <div class="widgets_container contact_us">
+                            <div class="footer_logo">
+                                <a href="#"><img src="enig/assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                            <div class="footer_contact">
+                                <p>We are a team of designers and developers that
+                                    create high quality Magento, Prestashop, Opencart...</p>
+                                <div class="customer_support">
+                                    <div class="support_img_icon">
+                                        <img src="enig/assets/img/icon/hotline.png" alt="">
+                                    </div>
+                                    <div class="customer_support_text">
+                                        <p>
+                                            <span>Customer Support</span>
+                                            <a href="tel:(08)123456789">(08) 123 456 789</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-7">
+                        <div class="widgets_container widgets_subscribe">
+                            <h3>Subscribe newsletter to get updated</h3>
+                            <div class="subscribe_form">
+                                <form id="mc-form" class="mc-form footer-newsletter">
+                                    <input id="mc-email" type="email" autocomplete="off"
+                                        placeholder="Enter you email address here..." />
+                                    <button id="mc-submit">Subscribe</button>
+                                </form>
+                                <!-- mailchimp-alerts Start -->
+                                <div class="mailchimp-alerts text-centre">
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                </div><!-- mailchimp-alerts end -->
+                            </div>
+                            <p>We’ll never share your email address with a third-party.</p>
+                            <div class="footer_social">
+                                <ul>
+                                    <li><a class="facebook" href="#"><i class="ion-social-facebook"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="ion-social-twitter"></i></a></li>
+                                    <li><a class="youtube" href="#"><i class="ion-social-youtube"></i></a></li>
+                                    <li><a class="google" href="#"><i class="ion-social-google"></i></a></li>
+                                    <li><a class="instagram" href="#"><i class="ion-social-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="widgets_container widget_menu">
+                            <h3>Information</h3>
+                            <div class="footer_menu">
+                                <ul>
+                                    <li><a href="#">Delivery</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html"> Contact us</a></li>
+                                    <li><a href="#">Stores</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">Legal Notice</a></li>
+                                    <li><a href="#">Secure payment</a></li>
+                                    <li><a href="#">Sitemap</a></li>
+                                    <li><a href="my-account.html"> My account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="copyright_area">
+                            <p class="copyright-text">&copy; 2021 <a href="index.html">Esther</a>. Made with <i
+                                    class="fa fa-heart text-danger"></i> by <a href="https://hasthemes.com/"
+                                    target="_blank">HasThemes</a> </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer_payment text-right">
+                            <a href="#"><img src="enig/assets/img/icon/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modal_box" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal_body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="modal_tab">
+                                    <div class="tab-content product-details-large">
+                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="enig/assets/img/product/product1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="enig/assets/img/product/product2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab3" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="enig/assets/img/product/product3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab4" role="tabpanel">
+                                            <div class="modal_tab_img">
+                                                <a href="#"><img src="enig/assets/img/product/product5.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal_tab_button">
+                                        <ul class="nav product_navactive owl-carousel" role="tablist">
+                                            <li>
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab"
+                                                    aria-controls="tab1" aria-selected="false"><img
+                                                        src="enig/assets/img/product/product1.jpg" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab"
+                                                    aria-controls="tab2" aria-selected="false"><img
+                                                        src="enig/assets/img/product/product2.jpg" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link button_three" data-bs-toggle="tab" href="#tab3"
+                                                    role="tab" aria-controls="tab3" aria-selected="false"><img
+                                                        src="enig/assets/img/product/product3.jpg" alt=""></a>
+                                            </li>
+                                            <li>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab"
+                                                    aria-controls="tab4" aria-selected="false"><img
+                                                        src="enig/assets/img/product/product5.jpg" alt=""></a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-12">
+                                <div class="modal_right">
+                                    <div class="modal_title mb-10">
+                                        <h2>Handbag feugiat</h2>
+                                    </div>
+                                    <div class="modal_price mb-10">
+                                        <span class="new_price">$64.99</span>
+                                        <span class="old_price">$78.99</span>
+                                    </div>
+                                    <div class="modal_description mb-15">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste
+                                            laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam
+                                            in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel
+                                            recusandae </p>
+                                    </div>
+                                    <div class="variants_selects">
+                                        <div class="variants_size">
+                                            <h2>size</h2>
+                                            <select class="select_option">
+                                                <option selected value="1">s</option>
+                                                <option value="1">m</option>
+                                                <option value="1">l</option>
+                                                <option value="1">xl</option>
+                                                <option value="1">xxl</option>
+                                            </select>
+                                        </div>
+                                        <div class="variants_color">
+                                            <h2>color</h2>
+                                            <select class="select_option">
+                                                <option selected value="1">purple</option>
+                                                <option value="1">violet</option>
+                                                <option value="1">black</option>
+                                                <option value="1">pink</option>
+                                                <option value="1">orange</option>
+                                            </select>
+                                        </div>
+                                        <div class="modal_add_to_cart">
+                                            <form action="#">
+                                                <input min="1" max="100" step="2" value="1" type="number">
+                                                <button type="submit">add to cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal_social">
+                                        <h2>Share this product</h2>
+                                        <ul>
+                                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a>
+                                            </li>
+                                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+============================================ -->
+    <!--jquery min js-->
+    <script src="enig/assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <!--popper min js-->
+    <script src="enig/assets/js/popper.js"></script>
+    <!--bootstrap min js-->
+    <script src="enig/assets/js/bootstrap.min.js"></script>
+    <!--owl carousel min js-->
+    <script src="enig/assets/js/owl.carousel.min.js"></script>
+    <!--slick min js-->
+    <script src="enig/assets/js/slick.min.js"></script>
+    <!--magnific popup min js-->
+    <script src="enig/assets/js/jquery.magnific-popup.min.js"></script>
+    <!--jquery countdown min js-->
+    <script src="enig/assets/js/jquery.countdown.js"></script>
+    <!--jquery ui min js-->
+    <script src="enig/assets/js/jquery.ui.js"></script>
+    <!--jquery elevatezoom min js-->
+    <script src="enig/assets/js/jquery.elevatezoom.js"></script>
+    <!--isotope packaged min js-->
+    <script src="enig/assets/js/isotope.pkgd.min.js"></script>
+    <!--slinky menu js-->
+    <script src="enig/assets/js/slinky.menu.js"></script>
+    <!-- Plugins JS -->
+    <script src="enig/assets/js/plugins.js"></script>
+
+    <!-- Main JS -->
+    <script src="enig/assets/js/main.js"></script>
+<script>
+    (function() {
+
+        'use strict';
+
+        // define variables
+        var timelines= document.querySelectorAll('.timeline2');
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+        function callbackFunc() {
+            var h,timeline, li,rect,parent_rect,i,items;
+            for(h=0;h<timelines.length;h++){
+                timeline=timelines[h];
+                parent_rect=timeline.getBoundingClientRect();
+                items = timeline.querySelectorAll(".timeline2 li");
+                for (  i = 0; i < items.length; i++) {
+                    /*
+                  if (isElementInViewport(items[i])) {
+                    items[i].classList.add("in-view");
+                  }
+                  */
+                    li=items[i];
+                    rect = li.getBoundingClientRect();
+
+                    if( (rect.bottom<=(parent_rect.top+(rect.height/2) ) ) || (rect.top >=(parent_rect.bottom-(rect.height/2)) ) ){
+                        //debugger;
+                        //li.style['background']='red';
+                        li.classList.remove("in-view");
+
+                    }else{
+                        //li.style['background']='white';
+                        li.classList.add("in-view");
+                    }
+
+                }
+            }
+        }
+        var updateLayout =debounce(function(e) {
+
+            // Does all the layout updating here
+            callbackFunc();
+
+        }, 500); // Maximum run of once per 500 milliseconds
+
+        // listen for events
+        window.addEventListener("load", callbackFunc);
+        window.addEventListener("resize", updateLayout);
+        window.addEventListener("scroll", callbackFunc);
+        for(var h=0;h<timelines.length;h++){
+            var  timeline=timelines[h];
+            timeline.addEventListener("scroll",callbackFunc );
+        }
+
+    })();
+
+</script>
+
+
+</body>
+
+
+<!-- Mirrored from htmldemo.net/esther/esther/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Oct 2022 15:51:19 GMT -->
+</html>
