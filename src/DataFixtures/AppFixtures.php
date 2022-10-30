@@ -218,10 +218,10 @@ class AppFixtures extends Fixture
 
           $user = new User();
 
-          $user->setNom('Konate')
-              ->setemail('konatenhamed@gmail.com')
-              ->setPrenoms('Hamed')
-              ->setPassword($this->encode->hashPassword($user, "konate"))
+          $user->setNom('traore')
+              ->setemail('traore@gmail.com')
+              ->setPrenoms('traore')
+              ->setPassword($this->encode->hashPassword($user, "traore"))
               ->setActive(1);
         $manager->persist($user);
         /*  $mod = new Module();
