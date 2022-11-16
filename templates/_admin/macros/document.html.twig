@@ -11,6 +11,20 @@
 
 {% endmacro %}
 
+{% macro versement(versement) %}
+
+    <div class="row row-line">
+        <div class="col-11">
+            {# <label class="sr-onl" for="userinput1"> <h3>Nom du document</h3></label>#}
+            {{ form_widget(versement.libelle) }}
+        </div>
+
+        <div class="col-1  del-col">
+        </div>
+    </div>
+
+{% endmacro %}
+
 
 {% macro workflow(workflow) %}
 

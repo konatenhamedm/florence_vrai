@@ -19,11 +19,17 @@
         </div>
         {# {{ include('includes/ajax/response.html.twig') }} #}
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 {{ form_row(form.titre) }}
             </div>
+
+        </div>
+        <div class="row">
             <div class="col-md-6">
-                {{ form_row(form.icone) }}
+                {{ form_row(form.fichier) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.image) }}
             </div>
 
         </div>

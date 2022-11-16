@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Repository\CalendarRepository;
 use App\Repository\ChambreRepository;
+use App\Repository\ElementSalleRepository;
+use App\Repository\RestoRepository;
+use App\Repository\SalleRepository;
+use App\Repository\ServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,13 +19,26 @@ class DefaultController extends AbstractController
 
     /**
      * @Route("/", name="app_default", methods={"post", "get"})
+     * @param ChambreRepository $repository
+     * @param ElementSalleRepository $elementSalleRepository
+     * @param RestoRepository $restoRepository
+     * @param SalleRepository $salleRepository
+     * @param ServiceRepository $serviceRepository
+     * @return Response
      */
-    public function indexFlorence(ChambreRepository $repository): Response
+    public function indexFlorence(ChambreRepository $repository,ElementSalleRepository $elementSalleRepository,RestoRepository $restoRepository,SalleRepository $salleRepository,ServiceRepository $serviceRepository): Response
     {
 
         $data = $repository->findAll();
+        $services = $serviceRepository->findAll();
+        $restos = $restoRepository->findAll();
+        $salles = $salleRepository->findAll();
+        $element = $elementSalleRepository->findAll();
         return $this->render('_includes/index.html.twig',[
-            'data'=>$data
+            'data'=>$data,
+            'services'=>$services,
+            'restos'=>$restos,
+            'salles'=>$salles
         ]);
     }
 
